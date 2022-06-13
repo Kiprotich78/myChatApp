@@ -1,0 +1,200 @@
+
+:root{
+    --body-bg: #c1bdba;
+    --form-bg: #13232f;
+    --white: #ffffff;
+
+    --main: #1ab188;
+    --main-light: lighten(var(--main),5%);
+    --main-dark: darken(var(--main),5%);
+
+    --gray-light: #a0b3b0;
+    --gray: #ddd;
+
+}
+*, *::after, *::before{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body{
+  background-color: var(--body-bg);
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  justify-content: center;
+  align-items:  center;
+}
+.form{
+  background-color: var(--form-bg);
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+}
+ul{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+ul li{
+  flex: 1;
+  background-color: var(--main);
+  list-style: none;
+  text-align:  center;
+  height: 50px;
+}
+.active{
+  background-color: var(--gray-light);
+}
+ul a{
+  color: white;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  text-decoration: none;
+}
+.tab-content{
+  display: flex;
+  position: relative;
+}
+
+.signup form > *{
+  margin: 15px 0;
+}
+
+form > *{
+    margin: 20px 0;
+}
+.signup{
+  position: absolute;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  text-align: center;
+  transform: scale(0);
+}
+.file input{
+  font-size: 1rem;
+  padding: 0;
+}
+
+.top-row{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.top-row > *{
+  width: 47%;
+}
+
+.field-wrap{
+  position: relative;
+  border: 1px solid white;
+  height: 35px;
+}
+.signup .field-wrap{
+  height: 30px;
+  
+}
+.signup .field-wrap label{
+  font-size: 1rem;
+}
+
+.file{
+  border: none;
+}
+
+input{
+  outline: none;
+  border: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  z-index: 1;
+  background: transparent;
+  background-color: none;
+  color: white;
+  padding: .2rem;
+  font-size: 1.2rem;
+}
+h1{
+  text-transform: capitalize;
+  color: white;
+  margin: 4px 0;
+  font-size: 1rem;
+
+}
+label{
+  color: var(--gray-light);
+  position: absolute;
+  width: max-content;
+  height: max-content;
+  margin: auto;
+  left: 2px;
+  top: 0;
+  bottom: 0px;
+  font-size: 1.4rem;
+  transition: transform .3s ease-in;
+}
+.labelActive{
+  font-size: 1rem;
+  transform: translate(-2px, 30px);
+}
+.signup .labelActive{
+  font-size: .3rem;
+  transform: translate(-2px, 24px);
+}
+button{
+  border: none;
+  outline:  none;
+  display: block;
+  width: 100%;
+  height: 50px;
+  text-transform: uppercase;
+  color: white;
+  cursor:  pointer;
+  font-size: 1.5rem;
+  background-color: var(--main);
+}
+.login{
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  text-align: center;
+  transform: scale(0);
+}
+.forgot{
+  display: flex;
+  justify-content: flex-end;
+}
+.forgot a{
+  text-decoration: none;
+  color: #1ab188;
+}
+.req{
+  color: #1ab188;
+}
+.appActive{
+  display: block;
+  transition: transform .6s ease-in;
+  transform: scale(1);
+}
+
+@media (max-width: 430px){
+  .form{
+    width: 100%;
+    height: 100vh;
+  }
+  input{
+    font-size: 1rem;
+  }
+  h1{
+    margin: 10px 0;
+  }
+}
+
