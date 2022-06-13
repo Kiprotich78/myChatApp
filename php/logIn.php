@@ -2,8 +2,8 @@
 
     include 'config.php';
 
-    $email = $_POST['email'];
-    $password = $_POST['email'];
+    $email = mysqli_real_escape_string($mySqlConnect, $_POST['email']);
+    $password =  mysqli_real_escape_string($mySqlConnect, $_POST['password']);
 
     if(!empty($email) && !empty($password)){
         $sql = mysqli_query($mySqlConnect, "SELECT * FROM users WHERE email = '$email' AND password = '$password'");
