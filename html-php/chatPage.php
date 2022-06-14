@@ -13,6 +13,7 @@
     $_SESSION['user_id'] = $_GET['user_id'];
 
   ?>
+  
   <body>
     <section class="whole-page">
       <section class="header">
