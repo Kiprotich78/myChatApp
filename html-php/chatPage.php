@@ -8,42 +8,28 @@
     <link rel="stylesheet" href="/myChatApp/css/chatPage.css" />
     <script src="https://kit.fontawesome.com/0334170ff8.js" crossorigin="anonymous"></script>
   </head>
+  <?php
+    session_start();
+    $_SESSION['user_id'] = $_GET['user_id'];
+
+  ?>
   <body>
     <section class="whole-page">
       <section class="header">
-        <div class="image">
-          <img src="/myChatApp/images/IMG_20210412_134406 (1).jpg" />
-        </div>
-        <div>
-          <div class="userName">Alex</div>
-          <div class="status">Active Now</div>
-        </div>
+        
       </section>
       <section class="chatSection">
-        <div class="chat recievedChat">
-          <div class="chat-container">
-            <div class="chat-header">
-              <div class="senderName">Alex</div>
-              <div class="time">12:00</div>
-            </div>
-            <div class="message">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere
-              quaerat perferendis labore nostrum. Quis cupiditate aut modi. Nisi
-              at quidem provident totam nam reiciendis voluptatum ducimus illo
-              omnis, saepe non, amet voluptatem aut iure impedit dolorem, maxime
-              libero. Consequuntur cupiditate nihil aliquid commodi deserunt
-              quia architecto ipsam explicabo libero quas?
-            </div>
-          </div>
-        </div>
+        
         
       </section>
       <section class="typeMessage">
         <div class="chat-input">
-          <input type="text" placeholder="Type a message..." />
-          <span>
-            <i class="fa-solid fa-paper-plane"></i>
-          </span>
+          <form action="#">
+            <input type="text" class="typingArea" name="text" placeholder="Type a message..." />
+            <button type="submit" name="submit" value="submit" class="submit-msg-btn">
+              <i class="fa-solid fa-paper-plane"></i>
+            </button>
+          </form>
         </div>
       </section>
     </section>
@@ -51,5 +37,6 @@
     <script src="/myChatApp/js/chatpage.js">
 
     </script>
+    <script src="/myChatApp/js/sendMsg.js"></script>
   </body>
 </html>

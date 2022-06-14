@@ -1,20 +1,22 @@
 const input = document.querySelector("input");
-const clicked = document.querySelector("span");
+const form = document.querySelector("form");
+const clicked = form.querySelector("button");
 const chatSection = document.querySelector(".chatSection");
+const chatPageheader = document.querySelector(".header");
 
 setWholePage();
 function setWholePage() {
   setInputValue();
-  setAjax();
+  setHeaderAjax();
 }
 
-function setAjax() {
+function setHeaderAjax() {
   let xhr = new XMLHttpRequest();
   xhr.open("GET", "/myChatApp/php/configChatPageHeader.php", true);
   xhr.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
       const response = this.responseText;
-      console.log(response);
+      chatPageheader.innerHTML = response;
     }
   };
   xhr.send();
@@ -41,21 +43,11 @@ function setInputValue() {
 }
 
 function rendermessage() {
+  getAjax();
   const timeHour = new Date().getHours();
   const timeMinute = new Date().getMinutes();
   const formatedTime = formatTime(timeHour, timeMinute);
   const message = input.value;
-  chatSection.innerHTML += `
-            <div class="chat sentChat">
-                <div class="chat-container">
-                    <div class="chat-header">
-                    <div class="time">${formatedTime}</div>
-                    </div>
-                    <div class="message">
-                        ${message}
-                    </div>
-                </div>`;
-
   input.value = "";
   clicked.style.pointerEvents = "none";
   chatSection.scrollTop = chatSection.scrollHeight;

@@ -12,16 +12,19 @@
         else{
             $id = "offline";
         }
-        $output .= '<div class="singleUser">
-                <div class="image">
-                    <img src="/myChatApp/php/images/'.$row['image'].'">
-                </div>
-                <div>
-                    <div class="userName3">'.$row['fname'].'</div>
-                    <p class="lastMessage">some text hear...</p>
-                </div>
-                <div class="userstatus" id="'.$id.'">'.$id.'</div>
-            </div>';
+        $output .= '
+                    <a href="/myChatApp/html-php/chatPage.php?user_id='.$row['unique_id'].'">
+                    <div class="singleUser">
+                        <div class="image">
+                            <img src="/myChatApp/php/images/'.$row['image'].'">
+                        </div>
+                        <div>
+                            <div class="userName3">'.$row['fname'].'</div>
+                            <p class="lastMessage">some text hear...</p>
+                        </div>
+                        <div class="userstatus" id="'.$id.'">'.$id.'</div>
+                    </div>
+                    </a>';
     }
     echo $output;
 

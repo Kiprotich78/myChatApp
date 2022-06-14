@@ -12,7 +12,9 @@
         else{
             $id = "offline";
         }
-        $output .= '<div class="singleUser">
+        $output .= '
+            <a href="/myChatApp/html-php/chatPage.php?user_id='.$row['unique_id'].'">
+            <div class="singleUser">
                 <div class="image">
                     <img src="/myChatApp/php/images/'.$row['image'].'">
                 </div>
@@ -21,7 +23,11 @@
                     <p class="lastMessage">some text hear...</p>
                 </div>
                 <div class="userstatus" id="'.$id.'">'.$id.'</div>
-            </div>';
+            </div>
+            </a>'
+            ;
+        $_SESSION['reciever_id'] = $row['unique_id'];
+
     }
     echo $output;
 
