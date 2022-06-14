@@ -11,13 +11,7 @@
 <body>
     <section class="whole-page">
         <section class="myprofile">
-            <div class="image">
-                <img src="/myChatApp/images/IMG_20210412_134406 (1).jpg">
-            </div>
-            <div>
-                <div class="userName">Kiprotich</div>
-                <div class="status">Active Now</div>
-            </div>
+            
         </section>
         <section class="search">
             
@@ -28,58 +22,11 @@
 
         </section>
         <section class="allUsers">
-            <div class="singleUser">
-                <div class="image">
-                    <img src="/myChatApp/images/IMG_20210412_134406 (1).jpg">
-                </div>
-                <div>
-                    <div class="userName3">Alex</div>
-                    <p class="lastMessage">some text hear...</p>
-                </div>
-                <div class="userstatus" id="offline">offline</div>
-            </div>
-            <div class="singleUser">
-                <div class="image">
-                    <img src="/myChatApp/images/IMG_20210412_134406 (1).jpg">
-                </div>
-                <div>
-                    <div class="userName3">Alex</div>
-                    <p class="lastMessage">some text hear...</p>
-                </div>
-                <div class="userstatus">online</div>
-            </div>
-            <div class="singleUser">
-                <div class="image">
-                    <img src="/myChatApp/images/IMG_20210412_134406 (1).jpg">
-                </div>
-                <div>
-                    <div class="userName3">Alex1</div>
-                    <p class="lastMessage">some text hear...</p>
-                </div>
-                <div class="userstatus" id="offline">offline</div>
-            </div>
-            <div class="singleUser">
-                <div class="image">
-                    <img src="/myChatApp/images/IMG_20210412_134406 (1).jpg">
-                </div>
-                <div>
-                    <div class="userName3">Alex</div>
-                    <p class="lastMessage">some text hear...</p>
-                </div>
-                <div class="userstatus">online</div>
-            </div>
-            <div class="singleUser">
-                <div class="image">
-                    <img src="/myChatApp/images/IMG_20210412_134406 (1).jpg">
-                </div>
-                <div>
-                    <div class="userName3">Alex</div>
-                    <p class="lastMessage">some text hear...</p>
-                </div>
-                <div class="userstatus">online</div>
-            </div>
+          
        
         </section>
     </section>
+
+    <script src="/myChatApp/js/getUsers.js"></script>
 </body>
 </html>

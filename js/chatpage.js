@@ -1,23 +1,44 @@
 const input = document.querySelector("input");
 const clicked = document.querySelector("span");
 const chatSection = document.querySelector(".chatSection");
-input.addEventListener("keyup", () => {
-  if (input.value.length > 0) {
-    clicked.style.pointerEvents = "auto";
-  } else {
-    clicked.style.pointerEvents = "none";
-  }
-});
 
-input.addEventListener("keydown", (e) => {
-  if (input.value !== "" && e.keyCode === 13) {
+setWholePage();
+function setWholePage() {
+  setInputValue();
+  setAjax();
+}
+
+function setAjax() {
+  let xhr = new XMLHttpRequest();
+  xhr.open("GET", "/myChatApp/php/configChatPageHeader.php", true);
+  xhr.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+      const response = this.responseText;
+      console.log(response);
+    }
+  };
+  xhr.send();
+}
+
+function setInputValue() {
+  input.addEventListener("keyup", () => {
+    if (input.value.length > 0) {
+      clicked.style.pointerEvents = "auto";
+    } else {
+      clicked.style.pointerEvents = "none";
+    }
+  });
+
+  input.addEventListener("keydown", (e) => {
+    if (input.value !== "" && e.keyCode === 13) {
+      rendermessage();
+    }
+  });
+
+  clicked.addEventListener("click", () => {
     rendermessage();
-  }
-});
-
-clicked.addEventListener("click", () => {
-  rendermessage();
-});
+  });
+}
 
 function rendermessage() {
   const timeHour = new Date().getHours();

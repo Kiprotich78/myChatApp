@@ -21,7 +21,7 @@
                 $extensions= array("jpeg","jpg","png");
                 if(in_array($image_ext, $extensions)=== TRUE){
                     $time = time();
-                    $file_name = $time.$file_name;
+                    $file_name = $time.'.'.$image_ext;
                     $file_path = "images/".$file_name;
                     if(move_uploaded_file($file_tmp, $file_path)){
                         $status = "Active Now";
