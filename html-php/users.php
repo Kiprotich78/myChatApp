@@ -26,6 +26,7 @@
        
         </section>
     </section>
+    
 
     <script src="/myChatApp/js/getUsers.js"></script>
 </body>

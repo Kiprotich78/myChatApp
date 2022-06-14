@@ -50,7 +50,6 @@ function rendermessage() {
   const message = input.value;
   input.value = "";
   clicked.style.pointerEvents = "none";
-  chatSection.scrollTop = chatSection.scrollHeight;
 }
 
 const formatTime = (hours, minutes) => {

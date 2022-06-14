@@ -29,6 +29,11 @@ body{
     height: 100vh;
     background-color: var(--body-bg);
 }
+@media (min-width: 400px) {
+    body{
+        align-items: flex-start;
+    }
+}
 .whole-page{
     width: 400px;
     background-color: var(--form-bg);
@@ -37,6 +42,7 @@ body{
     justify-content: center;
     flex-direction: column;
 }
+
 .image{
     display: grid;
     place-items: center;
@@ -117,6 +123,12 @@ i{
     padding: 10px;
     padding-top: 0px;
     overflow-y: auto;
+}
+@media (min-width: 400px) {
+    .allUsers{
+        background-color: red;
+        height: 500px;
+    }
 }
 .allUsers::-webkit-scrollbar{
     width: 0px;
