@@ -124,10 +124,15 @@ input{
 }
 h1{
   text-transform: capitalize;
+  padding: 3px;
   color: white;
+  min-height: 30px;
+  border-radius: 3px;
   margin: 4px 0;
-  font-size: 1rem;
-
+  font-size: .9rem;
+  display: grid;
+  place-items: center;
+  
 }
 label{
   color: var(--gray-light);

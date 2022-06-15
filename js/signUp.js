@@ -15,8 +15,8 @@ submitSignUp.addEventListener("click", () => {
       if (response === "success") {
         location.href = "/myChatApp/html-php/users.php";
       } else {
-        outputMessage.textContent = response;
-        outputMessage.style.backgroundColor = "#cc3300 !important";
+        errorMsg[0].textContent = response;
+        errorMsg[0].style.background = "#cc3300";
       }
     }
   };
