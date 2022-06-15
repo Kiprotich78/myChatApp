@@ -1,8 +1,10 @@
 const allUsers = document.querySelector(".allUsers");
 const myProfile = document.querySelector(".myprofile");
 const search = document.querySelector("input");
-setUsersPage();
 
+
+
+setUsersPage();
 function setUsersPage() {
   setUsersHeaderAjax();
   setUsersBodyAjax();
@@ -56,3 +58,19 @@ function setUsersBodyAjax() {
     xhr.send();
   }, 1000);
 }
+
+function logOut() {
+  const logOutBtn = document.querySelector(".logOut");
+  logOutBtn.addEventListener('click', () => {
+    let xhr = new XMLHttpRequest();
+    xhr.open("GET", "/myChatApp/php/logOut.php", true);
+    xhr.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        window.location.href = "/myChatApp/html-php/signUpLogIn.php";
+      }
+    }
+    xhr.send();
+   });
+}
+
+setTimeout(logOut, 5000);

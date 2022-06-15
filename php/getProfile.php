@@ -15,6 +15,10 @@
                 <div class="userName">'.$row['fname'].'</div>
                 <div class="status">'.$row['status'].'</div>
             </div>
+            <div class="logOut">
+                <p>Log Out</p>
+                <i class="fas fa-sign-out-alt"></i>
+            </div>    
     
     '
 

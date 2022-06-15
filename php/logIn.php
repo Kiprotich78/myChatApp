@@ -11,6 +11,8 @@
         if(mysqli_num_rows($sql) > 0){
             $row = mysqli_fetch_assoc($sql);
             $_SESSION['unique_id'] = $row['unique_id'];
+            $query = "UPDATE users SET status = 'Active Now' WHERE unique_id = '$_SESSION[unique_id]'";
+            mysqli_query($mySqlConnect, $query);
             echo "success";
         }
         else{

@@ -17,7 +17,12 @@
   <body>
     <section class="whole-page">
       <section class="header">
-        
+
+      
+      <div class="logOut">
+          <p>Log Out</p>
+          <i class="fas fa-sign-out-alt"></i>
+        </div>
       </section>
       <section class="chatSection">
         

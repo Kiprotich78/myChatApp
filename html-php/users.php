@@ -11,6 +11,8 @@
 <body>
     <section class="whole-page">
         <section class="myprofile">
+
+
             
         </section>
         <section class="search">

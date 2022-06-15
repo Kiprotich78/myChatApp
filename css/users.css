@@ -62,7 +62,7 @@ img{
     position: relative;
     background-color: var(--main);
     width: 100%;
-    height: 100px;
+    height: 70px;
     display: flex;
     align-items: center;
     padding: 0 20px;
@@ -85,6 +85,8 @@ img{
     width: 100%;
     left: 0;
     height: 30px;
+    display: grid;
+    place-items: center;
   
 }
 .search{
@@ -119,6 +121,7 @@ input{
     cursor: pointer;
     border-radius: .5rem;
 }
+
 @media(max-width: 400px){
     .search{
         height: 50px;
@@ -177,14 +180,30 @@ i{
     transform: translateX(50%);
 }
 .singleUser > :nth-child(2){
-    transform: translateX(50%);
+    transform: translateX(20%);
 }
 
 .userName3{
+    text-transform: capitalize;
     font-weight: 800;
     font-size: 1.2rem;
 }
 .lastMessage{
+    display: inline-block;
+    padding: 3px;
+    width: 200px;
     color: #a0b3b0;
+}
+.logOut{
+    position: absolute;
+    right: 10px;
+    display: flex;
+    padding: 3px;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: white;
+}
+.logOut > *{
+    margin: 0 2px;
 }
 
