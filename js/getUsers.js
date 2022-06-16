@@ -2,13 +2,12 @@ const allUsers = document.querySelector(".allUsers");
 const myProfile = document.querySelector(".myprofile");
 const search = document.querySelector("input");
 
-
-
 setUsersPage();
 function setUsersPage() {
-  setUsersHeaderAjax();
+  setInterval(setUsersHeaderAjax, 1000);
   setUsersBodyAjax();
   searchUsers();
+  setUserStatus();
 }
 
 function setUsersHeaderAjax() {
@@ -33,11 +32,10 @@ function searchUsers() {
         if (search.value != "") {
           search.classList.add("isActive");
           allUsers.innerHTML = response;
-        }
-        else {
+        } else {
           search.classList.remove("isActive");
           setUsersBodyAjax();
-        } 
+        }
       }
     };
     xhr2.send();
@@ -50,7 +48,7 @@ function setUsersBodyAjax() {
     xhr.open("GET", "/myChatApp/php/getUsers.php", true);
     xhr.onreadystatechange = function () {
       if (this.readyState == 4 && this.status == 200) {
-        if (!search.classList.contains('isActive')) {
+        if (!search.classList.contains("isActive")) {
           allUsers.innerHTML = this.responseText;
         }
       }
@@ -61,16 +59,59 @@ function setUsersBodyAjax() {
 
 function logOut() {
   const logOutBtn = document.querySelector(".logOut");
-  logOutBtn.addEventListener('click', () => {
+  logOutBtn.addEventListener("click", () => {
     let xhr = new XMLHttpRequest();
     xhr.open("GET", "/myChatApp/php/logOut.php", true);
     xhr.onreadystatechange = function () {
       if (this.readyState == 4 && this.status == 200) {
         window.location.href = "/myChatApp/html-php/signUpLogIn.php";
       }
-    }
+    };
     xhr.send();
-   });
+  });
 }
 
 setTimeout(logOut, 5000);
+
+function setUserStatus() {
+  document.addEventListener("visibilitychange", () => {
+    documentVisible();
+    if (document.visibilityState != "visible") {
+      let xhr = new XMLHttpRequest();
+      xhr.open("GET", "/myChatApp/php/setUserStatus.php?status=offline", true);
+      xhr.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          console.log(this.responseText);
+        }
+      };
+      xhr.send();
+    }
+  });
+  window.addEventListener("beforeunload", () => {
+    let xhr = new XMLHttpRequest();
+    xhr.open("GET", "/myChatApp/php/setUserStatus.php?status=offline", true);
+    xhr.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        console.log(this.responseText);
+      }
+    };
+    xhr.send();
+  } 
+    , false);
+  
+}
+
+function documentVisible() {
+  if (document.visibilityState == "visible") {
+    let xhr = new XMLHttpRequest();
+    xhr.open("GET", "/myChatApp/php/setUserStatus.php?status=online", true);
+    xhr.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        console.log(this.responseText);
+      }
+    };
+    xhr.send();
+  }
+}
+documentVisible();
+
