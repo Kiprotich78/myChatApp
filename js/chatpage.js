@@ -3,13 +3,16 @@ const form = document.querySelector("form");
 const clicked = form.querySelector("button");
 const chatSection = document.querySelector(".chatSection");
 const chatPageheader = document.querySelector(".header");
-
+let count = 0;
 setWholePage();
 function setWholePage() {
   setInputValue();
   setUserStatus();
+  documentVisible();
+  setUserTyping();
+  setInterval(setHeaderAjax, 1000);
+  setInterval(deleteTyping, 1000);
 }
-setInterval(setHeaderAjax, 1000);
 function setHeaderAjax() {
   let xhr = new XMLHttpRequest();
   xhr.open("GET", "/myChatApp/php/configChatPageHeader.php", true);
@@ -22,18 +25,18 @@ function setHeaderAjax() {
   xhr.send();
 }
 
+input.addEventListener("keydown", (e) => {
+  if (input.value !== "" && e.keyCode === 13) {
+    rendermessage();
+  }
+});
+
 function setInputValue() {
   input.addEventListener("keyup", () => {
     if (input.value.length > 0) {
       clicked.style.pointerEvents = "auto";
     } else {
       clicked.style.pointerEvents = "none";
-    }
-  });
-
-  input.addEventListener("keydown", (e) => {
-    if (input.value !== "" && e.keyCode === 13) {
-      rendermessage();
     }
   });
 
@@ -117,4 +120,45 @@ function documentVisible() {
     xhr.send();
   }
 }
-documentVisible();
+let counting;
+function setUserTyping() {
+  input.addEventListener("keyup", (e) => {
+    if (e.keyCode != 13) {
+      let xhr = new XMLHttpRequest();
+
+      count = 0;
+      counting = setInterval(() => {
+        if (count > 3) {
+          count--;
+        } else {
+          count++;
+        }
+      }, 1000);
+
+      xhr.open("POST", "/myChatApp/php/setUserTyping.php", true);
+      xhr.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          console.log(this.responseText);
+        }
+      };
+      const status = "typing...";
+      xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      xhr.send(`status=${status}`);
+    }
+  });
+}
+
+function deleteTyping() {
+  console.log(count);
+  if (count == 3) {
+    clearInterval(counting);
+    let xhr = new XMLHttpRequest();
+    xhr.open("GET", "/myChatApp/php/deleteTyping.php", true);
+    xhr.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        console.log(this.responseText);
+      }
+    };
+    xhr.send();
+  }
+}

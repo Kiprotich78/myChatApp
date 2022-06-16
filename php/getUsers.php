@@ -12,7 +12,7 @@
         else{
             $id = "offline";
         }
-        $query2 = "SELECT * FROM chats WHERE (incoming_id = '".$_SESSION['unique_id']."' AND outgoing_id = '".$row['unique_id']."') OR (incoming_id = '".$row['unique_id']."' AND outgoing_id = '".$_SESSION['unique_id']."') ORDER BY chat_id DESC LIMIT 1";
+        $query2 = "SELECT * FROM chats WHERE (incoming_id = '".$_SESSION['unique_id']."' AND outgoing_id = '".$row['unique_id']."') OR (incoming_id = '".$row['unique_id']."' AND outgoing_id = '".$_SESSION['unique_id']."') AND msg != 'typing...' ORDER BY chat_id DESC LIMIT 1";
         $sql2 = mysqli_query($mySqlConnect, $query2);
         if(mysqli_num_rows($sql2) > 0){
             $row2 = mysqli_fetch_assoc($sql2);

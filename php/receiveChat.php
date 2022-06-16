@@ -4,7 +4,7 @@
     session_start();
     $user_id = $_SESSION['user_id'];
     $unique_id = $_SESSION['unique_id'];
-    $query = "SELECT * FROM chats WHERE (incoming_id = '$user_id' AND outgoing_id = '$unique_id') OR (incoming_id = '$unique_id' AND outgoing_id = '$user_id')";
+    $query = "SELECT * FROM chats WHERE (incoming_id = '$user_id' AND outgoing_id = '$unique_id') AND msg != 'typing...' OR (incoming_id = '$unique_id' AND outgoing_id = '$user_id')";
 
     $result = mysqli_query($mySqlConnect, $query);
 

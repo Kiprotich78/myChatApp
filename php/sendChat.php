@@ -9,16 +9,18 @@
 
 
     if(!empty($text) && !empty($user_id) && !empty($unique_id)){
-        $sql = "INSERT INTO chats (incoming_id, outgoing_id, msg, time) VALUES ('$user_id', '$unique_id', '$text', '$time')";
+        $sql = "UPDATE chats SET msg = '$text' WHERE incoming_id = '$user_id' AND outgoing_id = '$unique_id' AND msg = 'typing...'  OR outgoing_id = '$user_id' AND incoming_id = '$unique_id' AND msg = 'typing...'";
         $result = mysqli_query($mySqlConnect, $sql);
         if($result){
-            echo "Message sent";
+            echo "success";
         }else{
-            echo "Message not sent";
+            echo "Error";
         }
     }else{
         echo "Message not sent";
     }
+
+
 
 
 ?>
