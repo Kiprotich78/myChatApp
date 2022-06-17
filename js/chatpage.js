@@ -3,9 +3,11 @@ const form = document.querySelector("form");
 const clicked = form.querySelector("button");
 const chatSection = document.querySelector(".chatSection");
 const chatPageheader = document.querySelector(".header");
+const goBack = document.querySelector(".left_icon");
 let count = 0;
 setWholePage();
 function setWholePage() {
+  //setTimeout(goPrevious, 5000);
   setInputValue();
   setUserStatus();
   documentVisible();
@@ -13,6 +15,13 @@ function setWholePage() {
   setInterval(setHeaderAjax, 1000);
   setInterval(deleteTyping, 1000);
 }
+
+function goPrevious() {
+  goBack.addEventListener("click", () => {
+    location.href = "/myChatApp/html-php/users.php";
+  });
+}
+
 function setHeaderAjax() {
   let xhr = new XMLHttpRequest();
   xhr.open("GET", "/myChatApp/php/configChatPageHeader.php", true);
@@ -128,11 +137,11 @@ function setUserTyping() {
 
       count = 0;
       counting = setInterval(() => {
-        if (count > 3) {
+        if (count > 7) {
+          clearInterval(counting);
           count--;
-        } else {
-          count++;
         }
+        count++;
       }, 1000);
 
       xhr.open("POST", "/myChatApp/php/setUserTyping.php", true);
@@ -150,8 +159,8 @@ function setUserTyping() {
 
 function deleteTyping() {
   console.log(count);
-  if (count == 3) {
-    clearInterval(counting);
+  if (count == 7 || count == 8) {
+    count = 0;
     let xhr = new XMLHttpRequest();
     xhr.open("GET", "/myChatApp/php/deleteTyping.php", true);
     xhr.onreadystatechange = function () {

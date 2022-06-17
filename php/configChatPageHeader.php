@@ -7,6 +7,9 @@
     $sql = mysqli_query($mySqlConnect, $query);
     $row = mysqli_fetch_assoc($sql);
     echo '
+            <div class="left_icon">
+                <i class="fa-solid fa-angle-left"></i>
+            </div>
             <div class="image">
                 <img src="/myChatApp/php/images/'.$row['image'].'"/>
             </div>

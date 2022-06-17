@@ -1,8 +1,11 @@
 <?php
     include 'config.php';
     session_start();
-    $query = "SELECT * FROM users LEFT JOIN chats ON users.user_id = chats.chat_id WHERE unique_id != '".$_SESSION['unique_id']."' ORDER BY chat_id DESC";
-    $sql = mysqli_query($mySqlConnect, $query);
+    $query = "SELECT * FROM users LEFT JOIN chats ON users.unique_id = chats.incoming_id WHERE users.unique_id != '".$_SESSION['unique_id']."' ORDER BY chats.chat_id DESC ";
+
+    $query3 = "SELECT *, MAX(chats.chat_id) FROM users LEFT JOIN chats ON users.unique_id = chats.incoming_id or users.unique_id = chats.outgoing_id WHERE users.unique_id != '".$_SESSION['unique_id']."' GROUP BY users.fname ORDER BY MAX(chats.chat_id) DESC";
+    $sql = mysqli_query($mySqlConnect, $query3);
+
     $output = "";
     for($i = 0; $i < mysqli_num_rows($sql); $i++){
         $row = mysqli_fetch_assoc($sql);
