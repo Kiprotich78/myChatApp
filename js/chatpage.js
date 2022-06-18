@@ -3,22 +3,22 @@ const form = document.querySelector("form");
 const clicked = form.querySelector("button");
 const chatSection = document.querySelector(".chatSection");
 const chatPageheader = document.querySelector(".header");
-const goBack = document.querySelector(".left_icon");
 let count = 0;
 setWholePage();
 function setWholePage() {
-  //setTimeout(goPrevious, 5000);
   setInputValue();
   setUserStatus();
   documentVisible();
   setUserTyping();
-  setInterval(setHeaderAjax, 1000);
+  setHeaderAjax();
   setInterval(deleteTyping, 1000);
 }
-
+setTimeout(goPrevious, 2000);
 function goPrevious() {
+  const goBack = document.querySelector(".left_icon");
   goBack.addEventListener("click", () => {
     location.href = "/myChatApp/html-php/users.php";
+    console.log("go back");
   });
 }
 

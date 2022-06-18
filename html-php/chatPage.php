@@ -17,7 +17,7 @@
   <body>
     <section class="whole-page">
       <section class="header">
-
+      
       
       <div class="logOut">
           <p>Log Out</p>
