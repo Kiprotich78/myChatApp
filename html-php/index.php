@@ -76,8 +76,8 @@
       </div>
     </div>
 
-    <script src="/myChatApp/js/signUpLogIn.js"></script>
-    <script src="/myChatApp/js/signUp.js"></script>
-    <script src="/myChatApp/js/logIn.js"></script>
+    <script src="/js/signUpLogIn.js"></script>
+    <script src="/js/signUp.js"></script>
+    <script src="/js/logIn.js"></script>
   </body>
 </html>

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ChatPage</title>
-    <link rel="stylesheet" href="/myChatApp/css/chatPage.css" />
+    <link rel="stylesheet" href="/css/chatPage.css" />
     <script src="https://kit.fontawesome.com/0334170ff8.js" crossorigin="anonymous"></script>
   </head>
   <?php
@@ -40,9 +40,9 @@
       </section>
     </section>
 
-    <script src="/myChatApp/js/chatpage.js">
+    <script src="/js/chatpage.js">
 
     </script>
-    <script src="/myChatApp/js/sendMsg.js"></script>
+    <script src="/js/sendMsg.js"></script>
   </body>
 </html>
