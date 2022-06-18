@@ -2,7 +2,7 @@
     include 'config.php';
     session_start();
     if(!isset($_SESSION['unique_id'])){
-        header("Location: /myChatApp/html-php/signUpLogIn.php");
+        header("Location: /myChatApp/html-php/index.php");
     }
     $query = "SELECT * FROM users WHERE unique_id = '".$_SESSION['unique_id']."'";
     $sql = mysqli_query($mySqlConnect, $query);

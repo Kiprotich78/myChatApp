@@ -77,7 +77,7 @@ function logOut() {
     xhr.open("GET", "/myChatApp/php/logOut.php", true);
     xhr.onreadystatechange = function () {
       if (this.readyState == 4 && this.status == 200) {
-        window.location.href = "/myChatApp/html-php/signUpLogIn.php";
+        window.location.href = "/myChatApp/html-php/index.php";
         console.log(this.responseText);
       }
     };
