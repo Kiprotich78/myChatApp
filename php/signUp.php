@@ -28,7 +28,7 @@
                         $random_id = rand(time(), 1000000);
                         $sql = mysqli_query($mySqlConnect, 
                                 "INSERT INTO users (unique_id, fname, lname, email, password, image, status) 
-                                VALUES ('$random_id','$fname', '$lname', '$email', '$password', '$file_name', '$status')");
+                                VALUES  ('$random_id','$fname', '$lname', '$email', '$password', '$file_name', '$status')");
                         if($sql){
                             $sql2 = mysqli_query($mySqlConnect, "SELECT * FROM users WHERE email = '$email'");
                             if($sql2){

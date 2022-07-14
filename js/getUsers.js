@@ -4,7 +4,7 @@ const search = document.querySelector("input");
 
 setUsersPage();
 function setUsersPage() {
-  setInterval(setUsersHeaderAjax, 1000);
+  setUsersHeaderAjax();
   setUsersBodyAjax();
   searchUsers();
   setUserStatus();
@@ -64,7 +64,7 @@ function logOut() {
     xhr.open("GET", "/myChatApp/php/logOut.php", true);
     xhr.onreadystatechange = function () {
       if (this.readyState == 4 && this.status == 200) {
-        window.location.href = "/myChatApp/html-php/signUpLogIn.php";
+        window.location.href = "/myChatApp/html-php/index.php";
       }
     };
     xhr.send();
