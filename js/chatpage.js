@@ -11,7 +11,6 @@ function setWholePage() {
   documentVisible();
   setUserTyping();
   setHeaderAjax();
-  setInterval(deleteTyping, 1000);
 }
 setTimeout(goPrevious, 2000);
 function goPrevious() {
@@ -132,15 +131,17 @@ function documentVisible() {
 let counting;
 function setUserTyping() {
   input.addEventListener("keyup", (e) => {
+    count = 0;
+    clearInterval(counting);
     if (e.keyCode != 13) {
       let xhr = new XMLHttpRequest();
 
-      count = 0;
       counting = setInterval(() => {
-        if (count > 7) {
+        if (count == 5) {
+          deleteTyping();
           clearInterval(counting);
-          count--;
         }
+        console.log(count);
         count++;
       }, 1000);
 
@@ -154,20 +155,19 @@ function setUserTyping() {
       xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
       xhr.send(`status=${status}`);
     }
+    
   });
 }
 
 function deleteTyping() {
-  console.log(count);
-  if (count == 7 || count == 8) {
-    count = 0;
-    let xhr = new XMLHttpRequest();
-    xhr.open("GET", "/myChatApp/php/deleteTyping.php", true);
-    xhr.onreadystatechange = function () {
-      if (this.readyState == 4 && this.status == 200) {
-        console.log(this.responseText);
-      }
-    };
-    xhr.send();
-  }
+  console.log("count = ", count);
+  count = 0;
+  let xhr = new XMLHttpRequest();
+  xhr.open("GET", "/myChatApp/php/deleteTyping.php", true);
+  xhr.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+      console.log(this.responseText);
+    }
+  };
+  xhr.send();
 }

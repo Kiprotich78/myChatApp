@@ -41,7 +41,6 @@ function searchUsers() {
     xhr2.send();
   });
 }
-
 function setUsersBodyAjax() {
   setInterval(() => {
     let xhr = new XMLHttpRequest();
